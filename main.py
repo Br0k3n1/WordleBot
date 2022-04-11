@@ -1,15 +1,17 @@
 from getFrequency import *
 from rankWords import *
 from updateVariables import *
+from os import path
+import sys
 
 # Get Possible Guesses
-with open("words/words.txt", "r") as f:
+with open(path.join(sys.path[0], "words/words.txt"), "r") as f:
     words = f.readlines()
 for i, word in enumerate(words):
     words[i] = word.strip()
 
 # Get Posible Answers
-with open("words/answer_words.txt", "r") as f:
+with open(path.join(sys.path[0], "words/answer_words.txt"), "r") as f:
     answer_words = f.readlines()
 for i, answer_word in enumerate(answer_words):
     answer_words[i] = answer_word.strip()
