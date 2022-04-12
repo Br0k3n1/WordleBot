@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 from os import path
 import sys
 
+## DOES NOT WORK 100% ##
+
 # Get Possible Guesses
 with open(path.join(sys.path[0], "words/words.txt"), "r") as f:
     words = f.readlines()
