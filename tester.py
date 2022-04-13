@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from os import path
 import sys
 
-## DOES NOT WORK 100% ##
+## DOES NOT WORK 100% (MY FAKE WORDLE GAME IS KINDA ASS) ##
 
 # Get Possible Guesses
 with open(path.join(sys.path[0], "words/words.txt"), "r") as f:
