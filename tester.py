@@ -2,12 +2,13 @@ from Wordle.main import *
 from getFrequency import *
 from rankWords import *
 from updateVariables import *
+import trie
 from random import randrange
 import matplotlib.pyplot as plt
 from os import path
 import sys
 
-## DOES NOT WORK 100% ##
+## DOES NOT WORK 100% (MY FAKE WORDLE GAME IS KINDA ASS) ##
 
 # Get Possible Guesses
 with open(path.join(sys.path[0], "words/words.txt"), "r") as f:
@@ -20,6 +21,11 @@ with open(path.join(sys.path[0], "words/answer_words.txt"), "r") as f:
     answer_words = f.readlines()
 for i, answer_word in enumerate(answer_words):
     answer_words[i] = answer_word.strip()
+
+# Turn list of answers into trie data stucture
+answer_words_trie = trie.Trie()
+for answer in answer_words:
+    answer_words_trie.add_word(answer)
 
 # Variables
 runAmount = 10
@@ -39,7 +45,7 @@ for _ in range(0, runAmount):
         # Get geuss
         found_words = getAvalWords(words, needed_letters)
         found_words_ranked = rankWords(
-            found_words, letterFreq, letterFreqLoc, lateGame, answer_words, roundNum
+            found_words, letterFreq, letterFreqLoc, lateGame, answer_words_trie, roundNum
         )
 
         # Sort ranked words
