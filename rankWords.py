@@ -1,3 +1,5 @@
+import trie
+
 def getAvalWords(wordlst, needed_letters):
     # Find Words that dont repeat letter and have the wanted letters in them
     found_words = []
@@ -9,6 +11,7 @@ def getAvalWords(wordlst, needed_letters):
 
         if wanted:
             found_words.append(word)
+    
     return found_words
 
 def rankWords(found_words, freq_ranker, loc_ranker, lategame, answer_words, roundNum):
@@ -25,7 +28,7 @@ def rankWords(found_words, freq_ranker, loc_ranker, lategame, answer_words, roun
                 value += loc_ranker[c][i]
                 value += freq_ranker[c]
             used_letters.append(c)
-        if lategame and word in answer_words:
+        if lategame and answer_words.check_word(word):
             value += 100000 * (roundNum - 2)
         
         words_ranked[word] = value
