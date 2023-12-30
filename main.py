@@ -42,6 +42,7 @@ while True:
 
     if values_sorted[0] - values_sorted[1] > 50000:
         print("\n")
+        print('\033[4m' + '\033[1m' + "Best Words" + '\033[0m')
         for word in top_ten:
             if word == top_ten[0]:
                 print(f"*{word}: {found_words_ranked[word]}")
@@ -50,13 +51,14 @@ while True:
         print("\n")
     else:
         print("\n")
+        print('\033[4m' + '\033[1m' + "Best Words" + '\033[0m')
         for word in top_ten:
             print(f"{word}: {found_words_ranked[word]}")
         print("\n")
 
     chosen_word = input("What Word Did you Choose: ")
     result = input(
-        "\nInput One Of These Words Into Wordle and Input Reults in Terminal O = Grey, G = Green, Y = Yellow (ex. OOGOY) (CTRL C to End): "
+        "\nInput Reults in Terminal O = Grey, G = Green, Y = Yellow (ex. OOGOY) (CTRL C to End): "
     )
 
     needed_letters, letterFreq, letterFreqLoc = update(
